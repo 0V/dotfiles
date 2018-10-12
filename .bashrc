@@ -107,10 +107,20 @@ fi
 # ctrl+s don't lock output
 stty stop undef
 
+case "${OSTYPE}" in
+darwin*)
+  alias ls="ls -CF"
+  alias ll="ls -AlFh"
+  alias la="ls -Ca"
+  ;;
+linux*)
+  alias ls='ls -CF --color=auto'
+  alias ll='ls -AlFh --show-control-chars --color=auto'
+  alias la='ls -Ca --color=auto'
+  ;;
+esac
+
 # set G2 ailias
-alias ls='ls -CF --color=auto'
-alias ll='ls -AlFh --show-control-chars --color=auto'
-alias la='ls -Ca --color=auto'
 alias mv='mv -i'
 alias rm='rm -i'
 alias rmr='rm -R'
